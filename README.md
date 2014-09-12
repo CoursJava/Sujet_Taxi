@@ -1,6 +1,6 @@
 *BTS Services Informatiques aux Organisations 2014/2015*
 
-####<b>SUJET TAXI - Version 1</b>
+####**SUJET TAXI - Version 1**
 
 La société Slamouraï dont le siège est basée à Paris, est une entreprise spécialisée dans le commerce de détail de biens culturels et de loisirs. 
 
@@ -35,7 +35,7 @@ Vous allez tenter de l'aider dans cette tâche, en lui proposant un programme qu
 
 ---
 
-####<b><u>Travail à faire :</u></b>
+####**<u>Travail à faire :</u>**
 
 1- Rédiger un document précisant les spécifications d'entrées et de sorties du futur programme, ainsi que les spécifications de traitement.
 
