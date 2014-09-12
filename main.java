@@ -70,6 +70,8 @@ public class main {
 				System.out
 						.print("Le nombre de kilomètres saisi est incorrect\n");
 		} while (km < 0); // Tant que le nombre de kilomètres est inferieur à 0
+		
+		reader.close();
 	}
 
 	public static double Calcul(int departement) // Methode calculant de total des frais en fonction du departement
