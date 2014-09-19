@@ -1,10 +1,6 @@
 package Sujet_Taxi;
 
-import java.util.Scanner; //Bibliothèque permettant de lire la saisie de l'utilisateur
-
 public class Duree {
-
-	private Scanner reader = new Scanner(System.in);
 	private int duree;
 	
 	public Duree() { //Constructeur par defaut
@@ -18,12 +14,10 @@ public class Duree {
 	public void Saisie(){
 		do {
 			System.out.print("Veuillez saisir la durée du trajet (en minutes) : ");
-			duree = reader.nextInt();
+			duree = main.reader.nextInt();
 			if (duree < 0)
 				System.out.print("La durée saisie est incorrect\n");
 		} while (duree < 0); // Tant que la durée est inferieur à 0
-		
-		reader.close();
 	}
 
 }

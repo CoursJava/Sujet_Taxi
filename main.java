@@ -1,8 +1,11 @@
 package Sujet_Taxi;
 
+import java.util.Scanner; //Bibliothèque permettant de lire la saisie de l'utilisateur
 import Sujet_Taxi.*;
 
 public class main {
+	
+	static Scanner reader = new Scanner(System.in);
 
 	// Objets
 	static Departement dept = new Departement();
