@@ -1,14 +1,11 @@
 package Sujet_Taxi;
 
 import java.util.InputMismatchException;
+import Sujet_Taxi.*;
+
 import java.util.Scanner; //Bibliothèque permettant de lire la saisie de l'utilisateur
 
 public class main {
-
-	// Variables globales
-	static Scanner reader = new Scanner(System.in);
-	static int dept, duree, km;
-	static char typeTrajet, jour, heure;
 
 	// Constantes
 	static double[][] tarifs = {
@@ -25,53 +22,23 @@ public class main {
 
 	public static void Saisie() // Methode permettant la saisie des entrées
 	{
-		do {
-			System.out.print("Veuillez saisir le departement : ");
-			dept = reader.nextInt();
-			if (dept <= 0 || dept > 95)
-				System.out.print("Le departement saisi est incorrect\n");
-		} while (dept <= 0 || dept > 95); // Tant que le departement est pas compris entre 0 et 95
-
-		do {
-			System.out.print("Veuillez saisir le type de trajet (S: Aller simple / R: Aller-Retour) : ");
-			typeTrajet = reader.next().charAt(0);
-			if (typeTrajet != 'S' || typeTrajet != 'R')
-				System.out.print("Le type de trajet saisi est incorrect\n");
-		} while (typeTrajet != 'S' && typeTrajet != 'R'); // Tant que le type de trajet n'est pas S ou R
-
-		do {
-			System.out
-					.print("Veuillez saisir le jour du trajet (S: Semaine / W: Week-end) : ");
-			jour = reader.next().charAt(0);
-			if (jour != 'S' || jour != 'W')
-				System.out.print("Le jour saisi est incorrect\n");
-		} while (jour != 'S' && jour != 'W'); // Tant que le jour n'est pas S ou W
-
-		do {
-			System.out
-					.print("Veuillez saisir l'heure du trajet (J: Avant 20h / N: Après 20h) : ");
-			heure = reader.next().charAt(0);
-			if (heure != 'J' || heure != 'N')
-				System.out.print("L'heure saisi est incorrect\n");
-		} while (heure != 'J' && heure != 'N'); // Tant que l'heure n'est pas J ou N
-
-		do {
-			System.out
-					.print("Veuillez saisir la durée du trajet (en minutes) : ");
-			duree = reader.nextInt();
-			if (duree < 0)
-				System.out.print("La durée saisie est incorrect\n");
-		} while (duree < 0); // Tant que la durée est inferieur à 0
-
-		do {
-			System.out.print("Veuillez saisir le nombre de kilomètres : ");
-			km = reader.nextInt();
-			if (km < 0)
-				System.out
-						.print("Le nombre de kilomètres saisi est incorrect\n");
-		} while (km < 0); // Tant que le nombre de kilomètres est inferieur à 0
+		Departement dept = new Departement();
+		dept.Saisie();
 		
-		reader.close();
+		TypeTrajet typeTrajet = new TypeTrajet();
+		typeTrajet.Saisie();
+ 
+		Jour jour = new Jour();
+		jour.Saisie();
+		
+		Heure heure = new Heure();
+		heure.Saisie();
+		
+		Duree duree = new Duree();
+		duree.Saisie();
+		
+		Km km = new Km();
+		km.Saisie();
 	}
 
 	public static double Calcul(int departement) // Methode calculant de total des frais en fonction du departement
