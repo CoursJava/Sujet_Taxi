@@ -1,6 +1,6 @@
 package Sujet_Taxi;
 
-import java.util.Scanner;
+import java.util.Scanner; //Bibliothèque permettant de lire la saisie de l'utilisateur
 
 public class Jour {
 
@@ -11,11 +11,11 @@ public class Jour {
 		jour = ' ';
 	}
 	
-	public Jour(char jour) {
-		this.jour = jour;
+	public char Value(){
+		return jour;
 	}
 	
-	public char Saisie(){
+	public void Saisie(){
 		do {
 			System.out.print("Veuillez saisir le jour du trajet (S: Semaine / W: Week-end) : ");
 			jour = reader.next().charAt(0);
@@ -24,7 +24,6 @@ public class Jour {
 		} while (jour != 'S' && jour != 'W'); // Tant que le jour n'est pas S ou W
 		
 		reader.close();
-		return jour;
 	}
 
 }

@@ -1,11 +1,16 @@
 package Sujet_Taxi;
 
-import java.util.InputMismatchException;
 import Sujet_Taxi.*;
 
-import java.util.Scanner; //Bibliothèque permettant de lire la saisie de l'utilisateur
-
 public class main {
+
+	// Objets
+	static Departement dept = new Departement();
+	static TypeTrajet typeTrajet = new TypeTrajet();
+	static Jour jour = new Jour();
+	static Heure heure = new Heure();
+	static Duree duree = new Duree();
+	static Km km = new Km();
 
 	// Constantes
 	static double[][] tarifs = {
@@ -22,48 +27,37 @@ public class main {
 
 	public static void Saisie() // Methode permettant la saisie des entrées
 	{
-		Departement dept = new Departement();
 		dept.Saisie();
-		
-		TypeTrajet typeTrajet = new TypeTrajet();
 		typeTrajet.Saisie();
- 
-		Jour jour = new Jour();
 		jour.Saisie();
-		
-		Heure heure = new Heure();
 		heure.Saisie();
-		
-		Duree duree = new Duree();
 		duree.Saisie();
-		
-		Km km = new Km();
 		km.Saisie();
 	}
 
-	public static double Calcul(int departement) // Methode calculant de total des frais en fonction du departement
+	public static double Calcul(int indiceDept) // Methode calculant de total des frais en fonction du departement
 	{
 		double prix = 0.0;
 
-		if (typeTrajet == 'S') { // Si le trajet est un aller simple
-			if (jour == 'S' && heure == 'J') { // En semaine, de jour
-				prix = tarifs[departement][1] + (km * tarifs[departement][3]);
-				if (duree > 60) // Et de plus d'une heure
-					prix += (int) (duree / 60) * tarifs[departement][4];
+		if (typeTrajet.Value() == 'S') { // Si le trajet est un aller simple
+			if (jour.Value() == 'S' && heure.Value() == 'J') { // En semaine, de jour
+				prix = tarifs[indiceDept][1] + (km.Value() * tarifs[indiceDept][3]);
+				if (duree.Value() > 60) // Et de plus d'une heure
+					prix += (int) (duree.Value() / 60) * tarifs[indiceDept][4];
 			} else { // Sinon, s'il est de nuit, ou le dimanche
-				prix = tarifs[departement][1] + (km * tarifs[departement][6]);
-				if (duree > 60) // ET de plus d'une heure
-					prix += (int) (duree / 60) * tarifs[departement][7];
+				prix = tarifs[indiceDept][1] + (km.Value() * tarifs[indiceDept][6]);
+				if (duree.Value() > 60) // ET de plus d'une heure
+					prix += (int) (duree.Value() / 60) * tarifs[indiceDept][7];
 			}
-		} else if (typeTrajet == 'R') { // Si le trajet est un aller retour
-			if (jour == 'S' && heure == 'J') { // En semaine, de jour
-				prix = tarifs[departement][1] + (km * tarifs[departement][2]);
-				if (duree > 60) // Et de plus d'un heure
-					prix += (int) (duree / 60) * tarifs[departement][4];
+		} else if (typeTrajet.Value() == 'R') { // Si le trajet est un aller retour
+			if (jour.Value() == 'S' && heure.Value() == 'J') { // En semaine, de jour
+				prix = tarifs[indiceDept][1] + (km.Value() * tarifs[indiceDept][2]);
+				if (duree.Value() > 60) // Et de plus d'un heure
+					prix += (int) (duree.Value() / 60) * tarifs[indiceDept][4];
 			} else { // Sinon, s'il est de nuit ou le dimanche
-				prix = tarifs[departement][1] + (km * tarifs[departement][5]);
-				if (duree > 60) // Et de plus d'une heure
-					prix += (int) (duree / 60) * tarifs[departement][7];
+				prix = tarifs[indiceDept][1] + (km.Value() * tarifs[indiceDept][5]);
+				if (duree.Value() > 60) // Et de plus d'une heure
+					prix += (int) (duree.Value() / 60) * tarifs[indiceDept][7];
 			}
 		}
 
@@ -73,17 +67,10 @@ public class main {
 	public static void main(String[] args) {
 		java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
 
-		int departement = 0;
-
 		Saisie(); // Saisie de l'utilisateur
 
-		for (int i = 0; i < 10; i++) { // Pour toutes les lignes du tableau,
-			if (tarifs[i][0] == dept) // Si un departement correspond à celui saisie
-				departement = i; // Stockage de l'indice de la ligne dans le tableau
-		}
-
-		if (departement != 0) // Si un departement à été trouvé
-			System.out.print("\n\nPrix : " + String.valueOf(df.format(Calcul(departement))) + "€"); // Affichage du prix
+		if (dept.Indice() != 0) // Si un departement à été trouvé
+			System.out.print("\n\nPrix : " + String.valueOf(df.format(Calcul(dept.Indice()))) + "€"); // Affichage du prix
 		else
 			System.out.print("\n\nDépartement inconnu");
 	}

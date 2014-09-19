@@ -1,6 +1,6 @@
 package Sujet_Taxi;
 
-import java.util.Scanner;
+import java.util.Scanner; //Bibliothèque permettant de lire la saisie de l'utilisateur
 
 public class Km {
 
@@ -11,11 +11,11 @@ public class Km {
 		km = 0;
 	}
 	
-	public Km(int km) {
-		this.km = km;
+	public int Value(){
+		return km;
 	}
 	
-	public int Saisie(){
+	public void Saisie(){
 		do {
 			System.out.print("Veuillez saisir le nombre de kilomètres : ");
 			km = reader.nextInt();
@@ -25,7 +25,6 @@ public class Km {
 		} while (km < 0); // Tant que le nombre de kilomètres est inferieur à 0
 		
 		reader.close();
-		return km;
 	}
 
 }

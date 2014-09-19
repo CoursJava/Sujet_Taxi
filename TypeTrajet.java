@@ -1,21 +1,21 @@
 package Sujet_Taxi;
 
-import java.util.Scanner;
+import java.util.Scanner; //Bibliothèque permettant de lire la saisie de l'utilisateur
 
 public class TypeTrajet {
 	
 	private Scanner reader = new Scanner(System.in);
-	private char typeTrajet;
+	char typeTrajet;
 
 	public TypeTrajet() { //Constructeur par defaut
 		typeTrajet = ' ';
 	}
 	
-	public TypeTrajet(char typeTrajet) {
-		this.typeTrajet = typeTrajet;
+	public char Value(){
+		return typeTrajet;
 	}
 	
-	public char Saisie(){
+	public void Saisie(){
 		do {
 			System.out.print("Veuillez saisir le type de trajet (S: Aller simple / R: Aller-Retour) : ");
 			typeTrajet = reader.next().charAt(0);
@@ -24,6 +24,5 @@ public class TypeTrajet {
 		} while (typeTrajet != 'S' && typeTrajet != 'R'); // Tant que le type de trajet n'est pas S ou R
 		
 		reader.close();
-		return typeTrajet;
 	}
 }
