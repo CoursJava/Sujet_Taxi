@@ -5,6 +5,7 @@ import java.util.List;
 import Sujet_Taxi.Saisies;
 
 public class Taxi {
+	//Objets
 	static Saisies saisies = new Saisies();
 	static List<Tarif> tarifs = new ArrayList<Tarif>();
 	
