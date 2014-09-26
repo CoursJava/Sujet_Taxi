@@ -11,10 +11,10 @@ public class Tarif {
 	 * 
 	 * @param Numéro du département (int)
 	 * @param Prise en charge (double)
-	 * @param Tarif kilométrique Allé/Retour d'un jour de semaine (double)
-	 * @param Tarif kilométrique Allé Simple d'un jour de semaine (double)
-	 * @param Tarif kilométrique Allé/Retour de nuit ou le dimanche (double)
-	 * @param Tarif kilométrique Allé Simple de nuit ou le dimanche (double)
+	 * @param Tarif kilométrique Aller/Retour d'un jour de semaine (double)
+	 * @param Tarif kilométrique Aller Simple d'un jour de semaine (double)
+	 * @param Tarif kilométrique Aller/Retour de nuit ou le dimanche (double)
+	 * @param Tarif kilométrique Aller Simple de nuit ou le dimanche (double)
 	 * @param Tarif horaire d'un jour de semaine (double)
 	 * @param Tarif horaire de nuit ou le dimanche (double)
 	 */
@@ -48,32 +48,32 @@ public class Tarif {
 	}
 
 	/**
-	 * Accesseur du tarif kilométrique d'un Allé/Retour lors d'un jour de semaine
-	 * @return Tarif kilométrique Allé/Retour d'un jour de semaine (double)
+	 * Accesseur du tarif kilométrique d'un Aller/Retour lors d'un jour de semaine
+	 * @return Tarif kilométrique Aller/Retour d'un jour de semaine (double)
 	 */
 	public double getKmAlleRetourJourSem(){
 		return kmAlleRetourJourSem;
 	}
 
 	/**
-	 * Accesseur du tarif kilométrique d'un Allé Simple lors d'un jour de semaine
-	 * @return Tarif kilométrique Allé Simple d'un jour de semaine (double)
+	 * Accesseur du tarif kilométrique d'un Aller Simple lors d'un jour de semaine
+	 * @return Tarif kilométrique Aller Simple d'un jour de semaine (double)
 	 */
 	public double getKmAlleSimpleJourSem(){
 		return kmAlleSimpleJourSem;
 	}
 
 	/**
-	 * Accesseur du tarif kilométrique d'un Allé/Retour de nuit ou le dimanche
-	 * @return Tarif kilométrique Allé/Retour de nuit ou le dimanche (double)
+	 * Accesseur du tarif kilométrique d'un Aller/Retour de nuit ou le dimanche
+	 * @return Tarif kilométrique Aller/Retour de nuit ou le dimanche (double)
 	 */
 	public double getKmAlleRetourNuitDim(){
 		return kmAlleRetourNuitDim;
 	}
 
 	/**
-	 * Accesseur du tarif kilométrique d'un Allé Simple de nuit ou le dimanche
-	 * @return Tarif kilométrique Allé Simple de nuit ou le dimanche (double)
+	 * Accesseur du tarif kilométrique d'un Aller Simple de nuit ou le dimanche
+	 * @return Tarif kilométrique Aller Simple de nuit ou le dimanche (double)
 	 */
 	public double getKmAlleSimpleNuitDim(){
 		return kmAlleSimpleNuitDim;

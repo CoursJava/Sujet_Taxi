@@ -20,6 +20,10 @@ public class Taxi {
 			{ 85, 2.3, 0.8, 1.6, 22.2, 1.2, 2.4, 22.2 },
 			{ 90, 2.2, 0.83, 1.66, 21, 1.15, 2.3, 21 } };
 	
+	/**
+	 * Fonction de recherche de la grille de tarifs correspondante au departement saisi
+	 * @return indice (int)
+	 */
 	public static int Recherche()
 	{
 		int indice = -1;
@@ -32,7 +36,12 @@ public class Taxi {
 		return indice;
 	}
 
-	public static double Calcul(int indiceDept) // Methode calculant de total des frais en fonction du departement
+	/**
+	 * Fonction de calcul du prix à payer en fonction du département saisi
+	 * @param indiceDept (int)
+	 * @return prix (double)
+	 */
+	public static double Calcul(int indiceDept)
 	{
 		double prix = 0.0;
 
@@ -60,10 +69,15 @@ public class Taxi {
 
 		return prix;
 	}
-
+	
+	/**
+	 * Main
+	 * @param args
+	 */
 	public static void main(String[] args) {		
 		java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
 		
+		//Implémentation des grilles de tarifs
 		for(int i = 0; i < array_tarifs.length; i++){
 			tarifs.add(new Tarif((int)(array_tarifs[i][0]), array_tarifs[i][1], array_tarifs[i][2], array_tarifs[i][3], array_tarifs[i][4], array_tarifs[i][5], array_tarifs[i][6], array_tarifs[i][7]));
 		}

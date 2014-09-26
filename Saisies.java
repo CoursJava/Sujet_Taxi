@@ -19,6 +19,7 @@ public class Saisies {
 	public int getDepartement() {
 		return dept;
 	}
+	
 	/**
 	 * Accesseur du type de trajet
 	 * 
@@ -27,6 +28,7 @@ public class Saisies {
 	public char getTypeTrajet() {
 		return typeTrajet;
 	}
+	
 	/**
 	 * Accesseur du jour
 	 * 
@@ -35,6 +37,7 @@ public class Saisies {
 	public char getJour() {
 		return jour;
 	}
+	
 	/**
 	 * Accesseur de l'heure
 	 * 
@@ -43,6 +46,7 @@ public class Saisies {
 	public char getHeure() {
 		return heure;
 	}
+	
 	/**
 	 * Accesseur des kilomètres
 	 * 
@@ -51,6 +55,7 @@ public class Saisies {
 	public int getKm() {
 		return km;
 	}
+	
 	/**
 	 * Accesseur de la durée
 	 * 
@@ -61,6 +66,9 @@ public class Saisies {
 	}
 	
 	//Méthodes
+	/**
+	 * Saisie du departement
+	 */
 	public void SaisieDepartement() {
 		do {
 			System.out.print("Veuillez saisir le departement : ");
@@ -70,6 +78,9 @@ public class Saisies {
 		} while (dept <= 0 || dept > 95); // Tant que le departement est pas compris entre 0 et 95
 	}
 
+	/**
+	 * Saisie du type de trajet (Aller simple ou aller/retour)
+	 */
 	public void SaisieTypeTrajet() {
 		do {
 			System.out.print("Veuillez saisir le type de trajet (S: Aller simple / R: Aller-Retour) : ");
@@ -79,6 +90,9 @@ public class Saisies {
 		} while (typeTrajet != 's' && typeTrajet != 'r'); // Tant que le type de trajet n'est pas S ou R
 	}
 
+	/**
+	 * Saisie du jour de la semaine (Semaine ou week-end)
+	 */
 	public void SaisieJour() {
 		do {
 			System.out.print("Veuillez saisir le jour du trajet (S: Semaine / W: Week-end) : ");
@@ -89,6 +103,9 @@ public class Saisies {
 												// W
 	}
 
+	/**
+	 * Saisie du moment de la journée (Jour ou nuit)
+	 */
 	public void SaisieHeure() {
 		do {
 			System.out.print("Veuillez saisir l'heure du trajet (J: Avant 20h / N: Après 20h) : ");
@@ -99,6 +116,9 @@ public class Saisies {
 												// ou N
 	}
 
+	/**
+	 * Saisie du nombre de kilomètres
+	 */
 	public void SaisieKm() {
 		do {
 			System.out.print("Veuillez saisir le nombre de kilomètres : ");
@@ -107,7 +127,10 @@ public class Saisies {
 				System.out.print("Le nombre de kilomètres saisi est incorrect\n");
 		} while (km < 0); // Tant que le nombre de kilomètres est inferieur à 0
 	}
-
+	
+	/**
+	 * Saisie de la durée
+	 */
 	public void SaisieDuree() {
 		do {
 			System.out.print("Veuillez saisir la durée du trajet (en minutes) : ");
@@ -117,6 +140,9 @@ public class Saisies {
 		} while (duree < 0); // Tant que la durée est inferieur à 0
 	}
 	
+	/**
+	 * Saisie de toutes les informations
+	 */
 	public void Saisie()
 	{
 		SaisieDepartement();
