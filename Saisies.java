@@ -19,6 +19,9 @@ public class Saisies {
 	public int getDepartement() {
 		return dept;
 	}
+	public void setDepartement(int departement) {
+		this.dept = departement;
+	}
 	
 	/**
 	 * Accesseur du type de trajet
@@ -27,6 +30,9 @@ public class Saisies {
 	 */
 	public char getTypeTrajet() {
 		return typeTrajet;
+	}
+	public void setTypeTrajet(char typeTrajet) {
+		this.typeTrajet = typeTrajet;
 	}
 	
 	/**
@@ -37,6 +43,9 @@ public class Saisies {
 	public char getJour() {
 		return jour;
 	}
+	public void setJour(char jour) {
+		this.jour = jour;
+	}
 	
 	/**
 	 * Accesseur de l'heure
@@ -45,6 +54,9 @@ public class Saisies {
 	 */
 	public char getHeure() {
 		return heure;
+	}
+	public void setHeure(char heure) {
+		this.heure = heure;
 	}
 	
 	/**
@@ -55,6 +67,9 @@ public class Saisies {
 	public int getKm() {
 		return km;
 	}
+	public void setKm(int km) {
+		this.km = km;
+	}
 	
 	/**
 	 * Accesseur de la durée
@@ -63,6 +78,9 @@ public class Saisies {
 	 */
 	public int getDuree() {
 		return duree;
+	}
+	public void setDuree(int duree) {
+		this.duree = duree;
 	}
 	
 	//Méthodes

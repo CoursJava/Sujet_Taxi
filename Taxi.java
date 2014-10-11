@@ -1,5 +1,7 @@
 package Sujet_Taxi;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import Sujet_Taxi.Saisies;
@@ -22,14 +24,14 @@ public class Taxi {
 			{ 90, 2.2, 0.83, 1.66, 21, 1.15, 2.3, 21 } };
 	
 	/**
-	 * Fonction de recherche de la grille de tarifs correspondante au departement saisi
+	 * Fonction de recherche de la grille de tarifs correspondante au detarifement saisi
 	 * @return indice (int)
 	 */
 	public static int Recherche()
 	{
 		int indice = -1;
 		for (int i = 0; i < 10; i++) { // Pour toutes les lignes du tableau,
-			if (tarifs.get(i).getDepartement() == saisies.getDepartement()){ // Si un departement correspond à celui saisie
+			if (tarifs.get(i).getDepartement() == saisies.getDepartement()){ // Si un detarifement correspond à celui saisie
 				indice = i; // Stockage de l'indice de la ligne dans le tableau
 				break;
 			}
@@ -38,7 +40,7 @@ public class Taxi {
 	}
 
 	/**
-	 * Fonction de calcul du prix à payer en fonction du département saisi
+	 * Fonction de calcul du prix à payer en fonction du détarifement saisi
 	 * @param indiceDept (int)
 	 * @return prix (double)
 	 */
@@ -75,17 +77,34 @@ public class Taxi {
 	 * Main
 	 * @param args
 	 */
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
 		
-		//Implémentation des grilles de tarifs
-		for(int i = 0; i < array_tarifs.length; i++){
-			tarifs.add(new Tarif((int)(array_tarifs[i][0]), array_tarifs[i][1], array_tarifs[i][2], array_tarifs[i][3], array_tarifs[i][4], array_tarifs[i][5], array_tarifs[i][6], array_tarifs[i][7]));
-		}
+		try{
+    		//Ouverture d'un flux d'entrée à tarifir du fichier 'grilleTarifs'
+        	BufferedReader monBuffer = new BufferedReader(new FileReader("/home/ronan/Documents/developpement/java/cours/src/Sujet_Taxi/grilleTarifs"));
+        	String line = null;
+        	
+        	//Tant qu'il reste une ligne au fichier
+        	while ((line = monBuffer.readLine()) != null)
+        	{
+        		//On découpe la ligne gràce au caractère ","
+        		String[] tarif = line.split(",");
+        		
+        		//Implémentation des grilles de tarifs à tarifir de la ligne du fichier découpée
+        		tarifs.add(new Tarif(Integer.parseInt(tarif[0]),Double.parseDouble(tarif[1]),Double.parseDouble(tarif[2]),Double.parseDouble(tarif[3]),
+        							Double.parseDouble(tarif[4]),Double.parseDouble(tarif[5]),Double.parseDouble(tarif[6]),Double.parseDouble(tarif[7])));
+        		
+        	}
+        	//Fermeture du buffer
+        	monBuffer.close();
+		} catch (Exception e) {
+		    System.out.println("Fichier contenant les tarifs introuvable !!!");
+		  }
 
 		saisies.Saisie();
 
-		if (Recherche() != -1) // Si un departement à été trouvé
+		if (Recherche() != -1) // Si un detarifement à été trouvé
 			System.out.print("\n\nPrix : " + String.valueOf(df.format(Calcul(Recherche()))) + "€"); // Affichage du prix
 		else
 			System.out.print("\n\nDépartement inconnu");
